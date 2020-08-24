@@ -1,7 +1,7 @@
 # < andreescondo@gmail.com  Andres Condo>
 import datetime
 import os
-# from os.path import isfile, isdir
+# frocomm os.path import isfile, isdir
 import glob
 import pathlib
 
@@ -12,11 +12,16 @@ def run():
 	*    Separando los archivos en carpetas    *
 	********************************************
 	''')
+
 	example_dir = './'
+	file = []
+
 	directory = pathlib.Path(example_dir)
 	for fichero in directory.iterdir():
 		file = os.path.splitext(fichero.name)[1]
 		print(file)
+
+	# if not os.path(file)
 
 
 
