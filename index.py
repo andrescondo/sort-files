@@ -18,10 +18,16 @@ def run():
 
 	directory = pathlib.Path(example_dir)
 	for fichero in directory.iterdir():
-		file = os.path.splitext(fichero.name)[1]
-		print(file)
+		file.append(os.path.splitext(fichero.name)[1])
 
-	# if not os.path(file)
+
+		# for i in file:
+		if not os.path.isdir(file[fichero]):
+			os.mkdir()
+		print('creado carpeta')
+	print(file)
+
+
 
 
 
