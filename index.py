@@ -4,6 +4,8 @@ import os
 # frocomm os.path import isfile, isdir
 import glob
 import pathlib
+from os import walk
+
 
 
 def run():
@@ -15,7 +17,15 @@ def run():
 
 	example_dir = './'
 	file = []
+	File = []
 	count = 0
+
+#======= VERIFICAR LOS ELEMENTOS DE LA CARPETA=======
+	dire, subdirs, archi = next(walk(example_dir))
+	print("Actual: ", dire)
+	print("Subdirectorios: ", subdirs)
+	print("Archivos: ", archi)
+#====================================================
 
 	directory = pathlib.Path(example_dir)
 	for fichero in directory.iterdir():
@@ -23,10 +33,18 @@ def run():
 
 		if not os.path.isdir(file[count]):
 			if not file[count] == '':
-				os.mkdir(file[count])
+				if not file[count] == 'py':
+					os.mkdir(file[count])
+
+		# if file[count] == os
+
 		count+=1
 
-	print(file)
+
+		# print(fichero)
+	# print(file)
+
+
 
 
 		# # for i in file:
