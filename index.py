@@ -1,33 +1,21 @@
 # < andreescondo@gmail.com  Andres Condo>
-import datetime
-import os
-# frocomm os.path import isfile, isdir
-import glob
-import pathlib
+from glob import glob
 from os import walk
+import pathlib
+import shutil
+import os
 
-
-
-def run():
+def mkdir():
 	print('''
 	********************************************
-	*    Separando los archivos en carpetas    *
+	*    Creando Carpetas de los Archivos	   *
 	********************************************
 	''')
-
-	example_dir = './'
+	dir_actual = './'
 	file = []
-	File = []
 	count = 0
 
-#======= VERIFICAR LOS ELEMENTOS DE LA CARPETA=======
-	dire, subdirs, archi = next(walk(example_dir))
-	print("Actual: ", dire)
-	print("Subdirectorios: ", subdirs)
-	print("Archivos: ", archi)
-#====================================================
-
-	directory = pathlib.Path(example_dir)
+	directory = pathlib.Path(dir_actual)
 	for fichero in directory.iterdir():
 		file.append(os.path.splitext(fichero.name)[1].lstrip('.'))
 
@@ -35,22 +23,37 @@ def run():
 			if not file[count] == '':
 				if not file[count] == 'py':
 					os.mkdir(file[count])
+					
 
-		# if file[count] == os
-
+		# if os.path.isdir(file[count]) == os.path:
+		# 	print('hola mundo')
 		count+=1
-
-
-		# print(fichero)
-	# print(file)
+	print(os.path.isdir('py'))
 
 
 
+def run():
+	mkdir()
 
-		# # for i in file:
-		# if not os.path.isdir(file[fichero]):
-		# 	os.mkdir()
-		# print('creado carpeta')
+	#======= VERIFICAR LOS ELEMENTOS DE LA CARPETA=======
+	dire, subdirs, archi = next(walk('.'))
+	print("Actual: ", dire)
+	print("Subdirectorios: ", subdirs)
+	print("Archivos: ", archi)
+	#====================================================
+	# algo = os.path.splitext(archi[0])[0]
+	# print(algo)
+
+	for folder in subdirs:
+		print(folder)
+		for file in archi:
+			print('--',file,'---')
+
+
+	
+
+	# shutil.move('{}.txt'.format(algo), 'txt')
+
 
 
 if __name__ == '__main__':
